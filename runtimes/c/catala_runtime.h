@@ -453,4 +453,12 @@ void* catala_do(void* (*f)(void));
    print a message to stderr (with source position when applicable), and return
    NULL. Use [register_error_handler] to customise this behaviour. */
 
+/* ---- Deep copy helpers ---- */
+
+catala_value catala_deep_copy(const catala_value x);
+/* From a typed catala value [x], creates a deep copy of the value of [x]
+   ([x.v]) and assigns [ret] with it. The copy is independent from the catala
+   stack (it will not be freed by [catala_free]). Returns 1 if the copy
+   succeeded, otherwise returns 0. */
+
 #endif /* __CATALA_RUNTIME_H__ */
